@@ -62,3 +62,7 @@ def sign_in_view(request): #로그인
             return render(request,'accounts/sign_in.html',{'error':'이메일 혹은 패스워드를 확인 해 주세요'})  # 로그인 실패
 
 
+def logout(request):   #로그아웃 함수
+    auth.logout(request) # 인증 되어있는 정보를 없애기
+    return redirect("/")
+
