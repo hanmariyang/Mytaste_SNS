@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 새로 추가한 APP
-    'User',
-    'Home',
-    'Content',
+    'account',
+    'content',
+    'main',
+
 ]
 
 MIDDLEWARE = [
