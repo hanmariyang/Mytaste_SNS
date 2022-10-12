@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>회원가입</title>
+  <link rel="icon" href=""/>
+
+  <title>회원 가입</title>
+</head>
+
+<body>
+    <form action="{% url 'sign-up' %}" method="POST">
+      {% csrf_token %}
+      <div style="display: flex; flex-direction: column;">
+          <input type="email" id="email" name="email" placeholder="이메일">
+          <input type="text" id="username" name="username" placeholder="성명">
+          <input type="text" id="nickname" name="nickname" placeholder="사용자 이름">
+          <input type="password" id="password" name="password" placeholder="비밀번호">
+          <input type="password" id="password2" name="password2" placeholder="비밀번호 확인">
+          <button type="submit"">가입하기</button>
+      </div>
+      </form>
+</body>
+
+</html>
