@@ -1,7 +1,8 @@
 # user/views.py
+import re
 from django.shortcuts import render, redirect
 from .models import UserModel
-from django.contrib.auth import get_user_model #사용자가 있는지 검사하는 함수
+from django.contrib.auth import get_user_model, authenticate #사용자가 있는지 검사하는 함수
 from django.contrib import auth
 
 # Create your views here.
@@ -43,20 +44,14 @@ def sign_in_view(request): #로그인
             return render(request, 'accounts/sign_in.html')
 
     elif request.method == 'POST':
-        id_nickname_or_email = request.POST.get('id_nickname_or_email', '')
+        id_email = request.POST.get('id_email', '')
         password = request.POST.get('password', '')
-        print(id_nickname_or_email)
 
-        user_email = auth.authenticate(request, email=id_nickname_or_email, password=password) # 사용자 이메일로 불러오기
-        user_nickname = auth.authenticate(request, nickname=id_nickname_or_email, password=password) # 사용자 닉네임으로 불러오기
+        user_email = authenticate(request, email=id_email, password=password) # 사용자 이메일로 불러오기
         if user_email is not None:  # 이메일로 저장된 사용자의 패스워드와 입력받은 패스워드 비교
             auth.login(request, user_email)
             print("이메일 로그인 성공!")
-            return redirect('/')            
-        elif user_nickname is not None:  # 닉네임으로 저장된 사용자의 패스워드와 입력받은 패스워드 비교
-            auth.login(request, user_nickname)
-            print("사용자 이름 로그인 성공!")
-            return redirect('/')
+            return render(request, 'main/home.html')         
         else:
             print("로그인 실패")
             return render(request,'accounts/sign_in.html',{'error':'이메일 혹은 패스워드를 확인 해 주세요'})  # 로그인 실패

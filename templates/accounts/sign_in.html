@@ -12,10 +12,11 @@
 </head>
 
 <body>
+  <!-- (start)accounts - sign-in 영역 -->
     <form action="{% url 'sign-in' %}" method="POST">
       {% csrf_token %}
       <div style="display: flex; flex-direction: column;">
-          <input type="text" id="id_nickname_or_email" name="id_nickname_or_email" placeholder="사용자 이름 또는 이메일">
+          <input type="text" id="id_email" name="id_email" placeholder="이메일">
           <input type="password" id="password" name="password" placeholder="비밀번호">
           <button type="submit">로그인</button>
       </div>

@@ -17,6 +17,6 @@ class UserModel(AbstractUser):
     profile_image = models.TextField()
     Introduce = models.TextField()
 
-    USERNAME_FIELD = 'email' 
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
