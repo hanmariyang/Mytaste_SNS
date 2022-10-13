@@ -2,17 +2,18 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mytastesns</title>
-  <link rel="icon" href=""/>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mytastesns</title>
+    <link rel="icon" href="" />
 
-  <title>mytastesns</title>
+    <title>mytastesns</title>
 </head>
 
 <body>
-    <nav style="display: flex; flex-direction: row; justify-content: space-between;">
+    <!-- (start))main - base 영역 -->
+    <nav style="display: flex; flex-direction: row; justify-content: space-between; background-color: black; color: white; height: 40px;">
         <div>
             로고
         </div>
@@ -23,6 +24,62 @@
             <button onclick="location.href='/logout'">로그아웃</button>
         </div>
     </nav>
+    <!-- (end))main - base 영역 -->
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <!-- (start)main - L/side 영역 -->
+        <div style="display: flex; flex-direction: column; background-color: #fafafa; height: 100vh; width: 200px;">
+
+        </div>
+        <!-- (end)main - L/side 영역 -->
+        <!-- (start)main - center 영역 -->
+        <div style="display: flex; flex-direction: column; background-color: #fafafa; height: 100vh; width: 800px;">
+            <!-- (start)main - center - feed 영역 -->
+            <div style="display: flex; flex-direction: column; background-color: white; width: 90%; margin: 10px auto 10px auto;">
+                <!-- (start)main - center - feed - profile 영역 -->
+                <div style="display: flex; flex-direction: row; justify-content: space-between; background-color: black; color: white;">
+                    <div style="display: flex; flex-direction: row; height: 40px;">
+                        <div>로고</div>
+                        <div>사용자명</div>
+                    </div>
+                    <div>ooo</div>
+                </div>
+                <!-- (end)main - center - feed - profile 영역 -->
+
+                <!-- (start)main - center - feed - img 영역 -->
+                <div>
+                    <img style="width: 90%; width: 100%;" src="https://i2.ruliweb.com/img/22/10/04/1839e61f7d550ad5d.jpg" alt="">
+                </div>
+                <!-- (end)main - center - feed - img 영역 -->
+
+                <!-- (start)main - center - feed - icon + like + text 영역 -->
+                <div style="display: flex; flex-direction: column;">
+                    <div style="display: flex; flex-direction: row;">
+                        <div>좋아요 아이콘</div>
+                    </div>
+                    <div>0명이 좋아합니다.</div>
+                    <div style="display: flex; flex-direction: row;">
+                        <div>사용자명</div>
+                        <div>피드 내용</div>
+                    </div>
+                </div>
+                <!-- (end)main - center - feed - icon + like + text 영역 -->
+
+                <!-- (start)main - center - feed - comment + reply 영역 -->
+                <div> 댓글 / 대댓글 </div>
+                <div style="background-color: black; color: white; height: 40px;"> 댓글 입력란 </div>
+                <!-- (end)main - center - feed - comment + reply 영역 -->
+                <div></div>
+            </div>
+            <!-- (end)main - center - feed 영역 -->
+        </div>
+        <!-- (end)main - center 영역 -->
+        <!-- (start)main - R/side 영역 -->
+        <div style="display: flex; flex-direction: column; background-color: #fafafa; height: 100vh; width: 200px;">
+
+        </div>
+        <!-- (end)main - R/side 영역 -->
+    </div>
+
 </body>
 
 </html>
