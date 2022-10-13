@@ -21,6 +21,7 @@
             검색창
         </div>
         <div>
+            <button onclick="location.href='/upload'">글쓰기</button>
             <button onclick="location.href='/logout'">로그아웃</button>
         </div>
     </nav>
@@ -33,13 +34,14 @@
         <!-- (end)main - L/side 영역 -->
         <!-- (start)main - center 영역 -->
         <div style="display: flex; flex-direction: column; background-color: #fafafa; height: 100vh; width: 800px;">
+            {% for feed in feeds %}
             <!-- (start)main - center - feed 영역 -->
             <div style="display: flex; flex-direction: column; background-color: white; width: 90%; margin: 10px auto 10px auto;">
                 <!-- (start)main - center - feed - profile 영역 -->
                 <div style="display: flex; flex-direction: row; justify-content: space-between; background-color: black; color: white;">
                     <div style="display: flex; flex-direction: row; height: 40px;">
                         <div>로고</div>
-                        <div>사용자명</div>
+                        <div>{{ feed.author.nickname }}</div>
                     </div>
                     <div>ooo</div>
                 </div>
@@ -47,7 +49,7 @@
 
                 <!-- (start)main - center - feed - img 영역 -->
                 <div>
-                    <img style="width: 90%; width: 100%;" src="https://i2.ruliweb.com/img/22/10/04/1839e61f7d550ad5d.jpg" alt="">
+                    <img style="width: 90%; width: 100%;" src="{{ feed.image }}" alt="">
                 </div>
                 <!-- (end)main - center - feed - img 영역 -->
 
@@ -58,8 +60,8 @@
                     </div>
                     <div>0명이 좋아합니다.</div>
                     <div style="display: flex; flex-direction: row;">
-                        <div>사용자명</div>
-                        <div>피드 내용</div>
+                        <div>{{ feed.author.nickname }}</div>
+                        <div>{{ feed.content }}</div>
                     </div>
                 </div>
                 <!-- (end)main - center - feed - icon + like + text 영역 -->
@@ -71,6 +73,7 @@
                 <div></div>
             </div>
             <!-- (end)main - center - feed 영역 -->
+            {% endfor %}
         </div>
         <!-- (end)main - center 영역 -->
         <!-- (start)main - R/side 영역 -->

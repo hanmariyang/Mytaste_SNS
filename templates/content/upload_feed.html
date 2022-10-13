@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mytastesns</title>
+    <link rel="icon" href="" />
+
+    <title>mytastesns</title>
+</head>
+
+<body>
+    <!-- (start))content - upload_feed 영역 -->
+    <form action="/upload/" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="content" placeholder="내용 입력..." />
+            <button type="submit">게시하기</button>
+        </div>
+    <!-- (end))content - upload_feed 영역 -->
+</body>
+
+</html>
