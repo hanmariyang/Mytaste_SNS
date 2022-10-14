@@ -43,7 +43,13 @@
                         <div>로고</div>
                         <div>{{ feed.author.nickname }}</div>
                     </div>
-                    <div>ooo</div>
+                    <!-- (start)피드 삭제 버튼 -->
+                    {% if feed.author == user %}
+                    <a href="feed/delete/{{ feed.id }}">
+                        <div>ooo</div>
+                    </a>
+                    {% endif %}
+                    <!-- (end))피드 삭제 버튼 -->
                 </div>
                 <!-- (end)main - center - feed - profile 영역 -->
 

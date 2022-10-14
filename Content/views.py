@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from content.models import FeedModel
-
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -31,3 +31,10 @@ def UploadFeed(request):
         my_feed.image = "https://i1.ruliweb.com/img/22/10/04/1839e60028750ad5d.jpg"
         my_feed.save()
         return render(request, 'main/home.html')
+
+
+@login_required
+def delete_feed(request, id):
+    my_feed = FeedModel.objects.get(id=id)
+    my_feed.delete()
+    return redirect('/')
