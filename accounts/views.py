@@ -36,14 +36,7 @@ def sign_up_view(request):
 
 
 def sign_in_view(request): #로그인
-    if request.method == 'GET':
-        user = request.user.is_authenticated
-        if user:
-            return redirect('/')
-        else:
-            return render(request, 'accounts/sign_in.html')
-
-    elif request.method == 'POST':
+    if request.method == 'POST':
         id_email = request.POST.get('id_email', '')
         password = request.POST.get('password', '')
 
@@ -51,10 +44,17 @@ def sign_in_view(request): #로그인
         if user_email is not None:  # 이메일로 저장된 사용자의 패스워드와 입력받은 패스워드 비교
             auth.login(request, user_email)
             print("이메일 로그인 성공!")
-            return render(request, 'main/home.html')         
+            return redirect('/')
         else:
             print("로그인 실패")
             return render(request,'accounts/sign_in.html',{'error':'이메일 혹은 패스워드를 확인 해 주세요'})  # 로그인 실패
+    
+    elif request.method == 'GET':
+        user = request.user.is_authenticated
+        if user:
+            return redirect('/')
+        else:
+            return render(request, 'accounts/sign_in.html')
 
 
 def logout(request):   #로그아웃 함수
