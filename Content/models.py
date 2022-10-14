@@ -14,3 +14,13 @@ class FeedModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     image = models.TextField()
     like_count = models.IntegerField()
+
+
+class FeedComment(models.Model):
+    class Meta:
+        db_table = "comment"
+    feed = models.ForeignKey(FeedModel, on_delete=models.CASCADE)
+    author = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=256)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
